@@ -2,6 +2,7 @@
 
 require_relative "clsx/version"
 require "clsx/railtie" if defined?(Rails)
+require "clsx/phlex/helper" if defined?(Phlex)
 
 module CLSX
   class Error < StandardError; end

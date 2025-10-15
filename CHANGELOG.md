@@ -1,4 +1,9 @@
 ## [Unreleased]
+### Added
+- Phlex helper module (`Clsx::Phlex::Helper`) for easy integration with Phlex components
+- Documentation for using clsx with Phlex
+- Tests for Phlex helper
+
 ## [0.1.3] - 2024-03-02
 PUBLIC RELEASE
 remove github actions to publish to rubygems, easier to run rake release

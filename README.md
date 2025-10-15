@@ -47,11 +47,43 @@ Kitchen sink (with nesting)
   #=> "foo bar hello world cya"
 ```
 
-You can also use clsx in rails views like this:
+You can also use clsx in Rails views like this:
 ```ruby
   <div class="<%= clsx({ 'border': true, "border-t": false, "border-b":true }) %>">
     <!-- ... -->
   </div>
+```
+
+### Using with Phlex
+
+To use clsx in your Phlex components, include the helper module:
+
+```ruby
+class MyComponent < Phlex::HTML
+  include Clsx::Phlex::Helper
+
+  def view_template
+    div(class: clsx("base-class", { active: @active, disabled: @disabled })) do
+      h1 { "Hello World" }
+    end
+  end
+end
+```
+
+Or include it in your base component to make it available everywhere:
+
+```ruby
+class ApplicationComponent < Phlex::HTML
+  include Clsx::Phlex::Helper
+end
+
+class MyComponent < ApplicationComponent
+  def view_template
+    div(class: clsx("foo", { bar: true })) do
+      # ...
+    end
+  end
+end
 ```
 
 
